@@ -1,24 +1,79 @@
-# 🚀 SkillMint — Web3 NFT Achievement Platform
+# 🌌 SkillMint
 
-SkillMint is a modern Web3 credentialing and NFT achievement platform built using React, Vite, Tailwind CSS, Ethers.js, and Base Sepolia.
+> A premium Web3 NFT achievement platform built on Base Sepolia with real blockchain minting, customizable badges, and gamified user experiences.
 
-It allows users to create, customize, and mint blockchain-based achievement badges as NFTs through a premium gamified experience with MetaMask integration and real blockchain interactions.
+SkillMint is a decentralized Web3 application that allows users to mint proof-of-skill achievements as elegant, customizable NFTs on the Base Sepolia network.
+
+The platform combines modern Web3 architecture with a premium startup-grade UI/UX experience featuring real blockchain minting, MetaMask integration, gamification systems, and dynamic NFT customization.
 
 ---
 
-# ✨ Features
+# ✨ Interactive Experience & Features
 
-* 🎨 Dynamic NFT Badge Customization
-* ⛓️ Real Blockchain NFT Minting
-* 🦊 MetaMask Wallet Integration
-* 🌐 Base Sepolia Network Support
-* 🏆 Gamified XP & Leaderboard System
-* 👤 Public User Profiles
-* 🌙 Dark / Light Theme Support
-* ⚡ Smooth Framer Motion Animations
-* 📱 Fully Responsive UI
-* 🔒 Secure Wallet Session Isolation
-* 🧠 Hybrid Web2 + Web3 Architecture
+## 🎨 Dynamic NFT Customization Studio
+
+Users can customize:
+
+* Skill Title
+* Recipient Name
+* Badge Level
+* Theme Colors
+* NFT Rarity
+
+Supported themes:
+
+* Cyan
+* Emerald
+* Violet
+* Rose
+* Amber
+
+Supported rarities:
+
+* Common
+* Rare
+* Epic
+* Legendary
+
+---
+
+## ⛓️ Real Blockchain NFT Minting
+
+* Real ERC-721 NFT minting on Base Sepolia
+* MetaMask wallet integration
+* Live transaction confirmations
+* BaseScan transaction links
+* On-chain ownership verification
+
+---
+
+## 🦊 MetaMask Wallet Integration
+
+* Secure wallet connection
+* Wallet isolation per authenticated user
+* Manual disconnect support
+* Auto network switching to Base Sepolia
+* Cross-session wallet protection
+
+---
+
+## 🏆 Gamification & Leaderboards
+
+* XP-based progression system
+* NFT rarity-based scoring
+* Public user achievement profiles
+* Competitive leaderboard architecture
+
+---
+
+## 🌙 Modern Premium UI/UX
+
+* Glassmorphism aesthetics
+* 3D NFT card tilt effects
+* Framer Motion animations
+* Responsive layouts
+* Neon-inspired modern design system
+* Dark/Light theme support
 
 ---
 
@@ -27,126 +82,195 @@ It allows users to create, customize, and mint blockchain-based achievement badg
 ## Frontend
 
 * React 19
-* Vite
+* Vite 7
 * TypeScript
 * Tailwind CSS v4
 * Framer Motion
 * Radix UI
-* Lucide Icons
+* Lucide React
+* Sonner
 
-## Routing & State
+---
+
+## Routing & State Management
 
 * TanStack Router
+* TanStack Start
 
-## Blockchain / Web3
+---
+
+## Blockchain & Web3
 
 * Ethers.js v6
-* Solidity ERC721 Smart Contract
+* Solidity
+* ERC-721 Smart Contract
 * Base Sepolia Testnet
-* MetaMask
+* MetaMask Integration
 
-## Backend / Services (Configured)
+---
 
+## Backend & Services
+
+* Supabase
 * Clerk Authentication
-* Supabase Database
 * Pinata IPFS
+* Cloudflare Workers
 
 ---
 
 # 🧩 Problem Statement
 
-Traditional certificates and digital achievements are centralized and easily forgeable.
+Traditional certificates and achievement systems are centralized, forgeable, and difficult to verify globally.
 
-SkillMint solves this problem by leveraging blockchain technology to create immutable NFT-based achievement badges that can be permanently verified on-chain.
+SkillMint solves this problem using blockchain technology by enabling immutable NFT-based proof-of-skill achievements that can be permanently verified on-chain.
 
-The platform also simplifies Web3 onboarding with a premium user experience and seamless wallet integration.
+The platform also simplifies Web3 onboarding through a beginner-friendly experience with premium UI/UX and seamless wallet integration.
 
 ---
 
 # 🏗️ Project Architecture
 
-```text
-Frontend (React + Vite)
-        ↓
+```text id="ar6n1y"
+Frontend (React + Vite + Tailwind)
+            ↓
 Wallet Layer (MetaMask + Ethers.js)
-        ↓
+            ↓
 Smart Contract (ERC721 on Base Sepolia)
-        ↓
-Metadata Storage (Base64 / IPFS)
-        ↓
-Optional Backend Services
-(Clerk + Supabase + Pinata)
+            ↓
+Metadata Layer (Base64 / IPFS)
+            ↓
+Backend Services
+(Supabase + Clerk + UGF Architecture)
 ```
+
+---
+
+# 🛡️ Smart Contract
+
+The core smart contract is located in:
+
+```text id="lt0bsa"
+contracts/SkillMintBadge.sol
+```
+
+### Contract Details
+
+* Standard: ERC721URIStorage
+* Solidity Version: ^0.8.20
+* Network: Base Sepolia
+
+### Key Function
+
+```solidity id="qqv4jh"
+mintBadge(address to, string memory tokenURI)
+```
+
+This function allows minting customizable NFT achievement badges with metadata support.
 
 ---
 
 # 📂 Folder Structure
 
-```text
-src/
- ├── components/
- ├── routes/
- ├── lib/
- ├── styles/
- └── assets/
+```text id="v4r4t4"
+├── contracts/
+│   └── SkillMintBadge.sol
 
-contracts/
- └── SkillMintBadge.sol
+├── src/
+│   ├── components/
+│   │   ├── layout/
+│   │   ├── skillmint/
+│   │   └── ui/
+│   │
+│   ├── hooks/
+│   ├── lib/
+│   │   ├── blockchain.ts
+│   │   ├── auth.tsx
+│   │   └── db.ts
+│   │
+│   ├── routes/
+│   │   ├── index.tsx
+│   │   ├── dashboard.tsx
+│   │   ├── explore.tsx
+│   │   ├── leaderboard.tsx
+│   │   ├── studio.tsx
+│   │   └── u.$username.tsx
+│   │
+│   ├── main.tsx
+│   ├── server.ts
+│   └── styles.css
+│
+├── .env
+├── package.json
+├── wrangler.jsonc
+└── README.md
 ```
 
 ---
 
 # ⚙️ Environment Variables
 
-Create a `.env` file:
+Create a `.env` file in the root directory.
 
-```env
+```env id="lmxec8"
+# Clerk Authentication
 VITE_CLERK_PUBLISHABLE_KEY=""
-VITE_NFT_CONTRACT_ADDRESS=""
+
+# Smart Contract Address
+VITE_NFT_CONTRACT_ADDRESS="0x8F51CB0a8b7AeA5E20B21B9487701dAc57e2efb8"
+
+# Supabase
 VITE_SUPABASE_URL=""
 VITE_SUPABASE_ANON_KEY=""
+
+# Pinata IPFS
 VITE_PINATA_JWT=""
 ```
 
 ---
 
-# 🔗 Smart Contract
+# 🚀 Getting Started
 
-Network: Base Sepolia
+## 1. Clone Repository
 
-ERC721 Contract integrated with Ethers.js.
-
-Current Contract Address:
-
-```text
-0x8F51CB0a8b7AeA5E20B21B9487701dAc57e2efb8
+```bash id="2j81vg"
+git clone https://github.com/Saniyapatil1501/skillmint-web3-platform.git
 ```
 
 ---
 
-# 🚀 Installation & Setup
+## 2. Move Into Project Folder
 
-## Clone Repository
-
-```bash
-git clone https://github.com/Saniyapatil1501/skillmint-web3-platform.git
+```bash id="z0pw4g"
+cd skillmint-web3-platform
 ```
 
-## Install Dependencies
+---
 
-```bash
+## 3. Install Dependencies
+
+```bash id="8j94jt"
 npm install
 ```
 
-## Start Development Server
+---
 
-```bash
+## 4. Run Development Server
+
+```bash id="ly7jma"
 npm run dev
 ```
 
-## Production Build
+Open:
 
-```bash
+```text id="4nt1mt"
+http://localhost:8080
+```
+
+---
+
+## 5. Production Build
+
+```bash id="qim5di"
 npm run build
 ```
 
@@ -155,49 +279,75 @@ npm run build
 # 🦊 MetaMask Setup
 
 1. Install MetaMask Extension
-2. Switch Network to Base Sepolia
-3. Import/Test Wallet
-4. Add Test ETH from Faucet
-5. Connect Wallet inside SkillMint
+2. Add Base Sepolia Network
+3. Get Base Sepolia Test ETH
+4. Connect Wallet inside SkillMint
+5. Mint NFT badges on-chain
 
 ---
 
 # 🌍 Deployment
 
-Recommended Platform:
+## Recommended Platform
 
 * Vercel
 
-Deployment Steps:
+## Deployment Steps
 
-1. Push code to GitHub
+1. Push repository to GitHub
 2. Import repository into Vercel
 3. Add environment variables
 4. Deploy
 
 ---
 
+# ⚡ Smart Contract Deployment
+
+The project uses a real ERC-721 smart contract deployed on Base Sepolia.
+
+### Deployment Options
+
+* Remix IDE
+* Hardhat
+* Foundry
+
+### Steps
+
+1. Compile Solidity contract
+2. Deploy to Base Sepolia
+3. Copy deployed contract address
+4. Update `.env`
+
+---
+
 # 📸 Screenshots
 
-> Add screenshots here before final submission.
+Add screenshots here before submission:
 
-* Home Page
+* Landing Page
 * Dashboard
 * NFT Studio
 * Wallet Connection
-* Mint Flow
+* NFT Minting Flow
 * Leaderboard
 
 ---
 
 # 🔮 Future Scope
 
-* Gasless Relayer Integration (UGF)
+* Fully Gasless UGF Relayer Backend
 * Real IPFS Metadata Hosting
-* NFT Marketplace Support
-* Multi-chain Expansion
+* NFT Marketplace Integration
 * AI-based Badge Recommendations
+* Multi-chain Support
 * Admin Analytics Dashboard
+* DAO Governance Features
+
+---
+
+# 📜 License
+
+Distributed under the MIT License.
 
 ---
 
@@ -207,12 +357,8 @@ Saniya Patil
 
 ---
 
-# 📜 License
-
-This project is licensed under the MIT License.
-
----
-
 # 💡 Final Note
 
-SkillMint was built as a modern startup-style Web3 platform focused on delivering a premium user experience while simplifying blockchain onboarding for non-crypto users.
+SkillMint was built as a premium startup-style Web3 platform focused on simplifying blockchain onboarding for non-crypto users while maintaining a modern and engaging user experience.
+
+The platform demonstrates real-world integration of Web3 technologies, blockchain interactions, NFT architecture, gamification systems, and modern frontend engineering practices.
